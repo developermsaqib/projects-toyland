@@ -194,15 +194,22 @@ include('./functions/common_functions.php');
                             </div>
                             </div>
 
-                            <div class='col-md-4'>
-                            <div class='card'>
-                                <video src='./admin_area/product_videos/$product_video' class='card-img-top' controls>
-                            </div>
-                            </div>
-
-
-                            
-                            
+                            <div class='col-md-4'>";
+                            // if product video is not available then display product_image1
+                            {
+                                if($product_video==(!NULL)){
+                                echo "  
+                                <div class='card'>
+                                    <video src='./admin_area/product_videos/$product_video' class='card-img-top' controls>
+                                </div>";
+                                }else{
+                                    echo "  
+                                <div class='card'>
+                                <img src='./admin_area/product_images/$product_image1' alt='$product_title' class='card-img-top'>
+                                </div>";
+                                }
+                            }
+                            echo "</div>
 
                             <div class='col-md-12'>
                                 <h4 class='mt-3'>Product Description:</h4>
@@ -215,12 +222,11 @@ include('./functions/common_functions.php');
                             }
                         }
 
-
                         ?>
                     </div>
 
                 </div>
-
+                ";
                 <?php
 
                 sort_products();
